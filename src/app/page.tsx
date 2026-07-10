@@ -6,11 +6,13 @@ import WorkExperience from "@/components/WorkExperience"
 
 const Home = () => {
   return <>
-    <main className="max-w-7xl mx-auto px-6 lg:px-8">
+    <main>
       <HeroSection />
       <WorkExperience />
          <TechStack/>
-           <ProjectsSection/>
+        <div className="py-16">
+  <ProjectsSection />
+</div>
      
     <ContactSection/>
     </main>

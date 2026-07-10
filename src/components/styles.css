@@ -1,0 +1,24 @@
+
+@media screen and (max-width: 768px) {
+  .hero-section{
+    margin-top: 90px !important;
+    padding: 0 20px !important;
+  }
+
+  .lab-section {
+    padding: 0 20px !important;
+  }
+  .project-items{
+    margin-bottom: 70px !important;
+  }
+
+  .contact-section{
+   padding-top: 0px !important;
+   margin-top: -70px !important;
+   padding-bottom: 0px !important;
+  }
+
+  .hero-btn{
+    text-align: center !important;
+  }
+}

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import React from "react";
-import ScrollReveal from "./ScrollReveal";
+import { MapPin, Calendar, ChevronRight } from "lucide-react";
 
 type ExperienceItem = {
   company: string;
@@ -15,10 +14,10 @@ type ExperienceItem = {
 const experienceItems: ExperienceItem[] = [
   {
     company: "Ixora Innovation LLP",
-    role: "Full Stack Developer (MERN Stack)",
+    role: "Full Stack Developer",
     duration: "Aug 2024 – Present",
     location: "Mumbai, India",
-    image: "/images/ixora.png",
+    image: "/images/logo.png",
     technologies: [
       "React.js",
       "Next.js",
@@ -42,7 +41,7 @@ const experienceItems: ExperienceItem[] = [
     role: "Junior Software Developer Intern",
     duration: "Feb 2024 – Aug 2024",
     location: "Mumbai, India",
-    image: "/images/mis.png",
+    image: "/images/miss.png",
     technologies: [
       "React.js",
       "Node.js",
@@ -63,108 +62,122 @@ const experienceItems: ExperienceItem[] = [
 
 const WorkExperience = () => {
   return (
-    <section id="experience" className="relative py-24 overflow-hidden">
-      {/* Glow Effect */}
+    <section id="experience" className="relative py-20 sm:py-28 overflow-hidden bg-[#060010]">
+      {/* Background glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-[90vw] md:w-[1000px] h-[500px] opacity-40 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-4xl h-[500px] opacity-30 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at top, rgba(168,85,247,.45), transparent 70%)",
+            "radial-gradient(circle at top, rgba(168,85,247,.5), transparent 65%)",
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Professional Experience
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section heading */}
+        <div className="text-center mb-14 sm:mb-20">
+          <p className="uppercase tracking-[0.3em] text-[11px] font-semibold text-purple-400/70 mb-3">
+            Career
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Professional{" "}
+            <span className="bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
-
-          <p className="mt-5 max-w-3xl mx-auto text-white/60 leading-7">
-            Over 2 years of experience building secure, scalable and
-            high-performance web applications using the MERN Stack, delivering
-            responsive user experiences and robust backend solutions.
+          <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-white/45 leading-relaxed">
+            Building secure, scalable and high-performance web applications
+            using the MERN Stack — delivering responsive UIs and robust backend
+            solutions.
           </p>
         </div>
 
-        {/* Cards */}
-        <ScrollReveal
-          stagger={0.15}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-        >
-          {experienceItems.map((item, index) => (
-            <article
-              key={index}
-              className="group relative rounded-3xl border border-[#2f1c55] bg-[#140a26]/90 p-8 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-purple-500 hover:shadow-[0_25px_60px_rgba(124,58,237,.35)]"
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line — hidden on mobile, shown md+ */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-purple-600/60 via-purple-600/20 to-transparent" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  {experienceItems.map((item, index) => (
+    <article
+      key={index}
+      className="group relative rounded-2xl border border-purple-900/40 bg-[#0e0520]/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_20px_50px_rgba(124,58,237,.25)]"
+    >
+      {/* Glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at top right, rgba(124,58,237,.18), transparent 55%)",
+        }}
+      />
+
+      {/* Top Border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+
+      <div className="relative p-6">
+        {/* Company */}
+        <div className="flex items-start gap-4 mb-5">
+          <div className="relative w-14 h-14 rounded-xl bg-[#1a0b30] border border-purple-800/50 overflow-hidden">
+            <Image
+              src={item.image}
+              alt={item.company}
+              fill
+              className="object-contain p-2"
+            />
+          </div>
+
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-white">
+              {item.role}
+            </h3>
+
+            <p className="text-purple-400 font-semibold">
+              {item.company}
+            </p>
+
+            <div className="flex flex-wrap gap-4 mt-2 text-white/50 text-sm">
+              <span className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                {item.duration}
+              </span>
+
+              <span className="flex items-center gap-1">
+                <MapPin className="w-4 h-4" />
+                {item.location}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="h-px bg-purple-900/40 mb-5" />
+
+        <ul className="space-y-3 mb-6">
+          {item.description.map((point, i) => (
+            <li
+              key={i}
+              className="flex gap-2 text-white/70 text-sm"
             >
-              {/* Gradient */}
-              <div
-                className="absolute inset-0 opacity-60"
-                style={{
-                  background:
-                    "radial-gradient(circle at top right, rgba(124,58,237,.25), transparent 60%)",
-                }}
-              />
-
-              <div className="relative flex gap-6 items-start">
-                {/* Logo */}
-                <div className="relative w-20 h-20 shrink-0 rounded-xl bg-[#24113d] border border-[#3f2670] p-3">
-                  <Image
-                    src={item.image}
-                    alt={item.company}
-                    fill
-                    className="object-contain p-3"
-                    priority
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <span className="text-sm font-medium text-purple-400">
-                    {item.duration}
-                  </span>
-
-                  <h3 className="mt-2 text-2xl font-bold text-white">
-                    {item.role}
-                  </h3>
-
-                  <p className="mt-1 font-medium text-purple-300">
-                    {item.company}
-                  </p>
-
-                  <p className="text-sm text-white/50 mb-6">
-                    {item.location}
-                  </p>
-
-                  {/* Description */}
-                  <ul className="space-y-3">
-                    {item.description.map((point, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-white/70 text-sm leading-6"
-                      >
-                        <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 shrink-0" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mt-8">
-                    {item.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-xs rounded-full border border-purple-600 bg-[#1d0d34] text-purple-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </article>
+              <ChevronRight className="w-4 h-4 text-purple-500 mt-0.5 shrink-0" />
+              {point}
+            </li>
           ))}
-        </ScrollReveal>
+        </ul>
+
+        <div className="flex flex-wrap gap-2">
+          {item.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 rounded-full text-xs border border-purple-700/40 bg-purple-900/30 text-purple-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  ))}
+</div>
+        </div>
       </div>
     </section>
   );

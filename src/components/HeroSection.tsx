@@ -5,12 +5,13 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { FaArrowRight } from "react-icons/fa";
 import ScrollReveal from "./ScrollReveal";
+import "./styles.css";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-28"
+      className="relative hero-section overflow-hidden pt-16 md:pt-36 pb-16 md:pb-28" style={{ maxWidth: "1500px", margin: "0 auto" }}
     >
       {/* Background Glow */}
       <div
@@ -21,29 +22,28 @@ const HeroSection = () => {
         }}
       />
 
-     <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 
-   <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-<div className="max-w-7xl mx-auto px-6"></div>
-          {/* LEFT */}<div className="max-w-7xl mx-auto px-6"></div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
 
           <ScrollReveal stagger={0.1}>
 
             {/* Badge */}
 
-            <div className="inline-flex items-center rounded-full border border-purple-500/40 bg-purple-500/10 px-5 py-2 text-sm text-purple-300 mb-8">
+            <div className="inline-flex w-fit items-center rounded-full border border-purple-500/40 bg-purple-500/10 px-4 py-2 text-xs sm:text-sm text-purple-300 mb-6">
               🚀 Full Stack Developer • MERN Stack
             </div>
 
             {/* Name */}
 
-            <p className="uppercase tracking-[0.35em] text-sm text-purple-400 mb-4">
+            <p className="uppercase tracking-[0.2em] text-sm text-purple-400 mb-4">
               PREETI VISHWAKARMA
             </p>
 
             {/* Heading */}
 
-           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold leading-[1-1] text-white">
 
               Building
 
@@ -57,7 +57,7 @@ const HeroSection = () => {
 
             {/* Typewriter */}
 
-          <div className="mt-6 text-xl sm:text-2xl lg:text-3xl">
+            <div className="mt-6 text-xl sm:text-2xl lg:text-3xl">
 
               <Typewriter
                 words={[
@@ -95,22 +95,23 @@ const HeroSection = () => {
 
             {/* Buttons */}
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
 
               <a
                 href="/resume.pdf"
                 target="_blank"
-                className="group inline-flex items-center gap-3 rounded-xl bg-[#A855F7] px-7 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-purple-600"
+                className="group hero-btn inline-flex items-center gap-3 rounded-xl bg-[#A855F7] px-7 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-purple-600"
               >
-                Download Resume
+                <span style={{ margin: "0 auto", display: "flex", alignItems: "center", gap: "0.5rem"}}>
+                  Download Resume
 
-                <FaArrowRight className="transition group-hover:translate-x-1" />
-
+                  <FaArrowRight className="transition group-hover:translate-x-1" />
+                </span>
               </a>
 
               <a
                 href="#projects"
-                className="rounded-xl border border-purple-600 px-7 py-4 text-white transition hover:bg-purple-500/10"
+                className="rounded-xl hero-btn border border-purple-600 px-7 py-4 text-white transition hover:bg-purple-500/10"
               >
                 View Projects
               </a>
@@ -164,30 +165,32 @@ const HeroSection = () => {
           {/* RIGHT */}
 
           <ScrollReveal delay={0.25}>
-
-            <div className="relative flex justify-center">
+            <div className="relative flex justify-center items-center mt-10 lg:mt-0">
 
               {/* Rotating Ring */}
+              <div className="absolute w-64 h-64 sm:w-80 sm:h-80 lg:w-[430px] lg:h-[430px] rounded-full border border-purple-500/30 animate-[spin_20s_linear_infinite]" />
 
-              <div className="absolute h-[430px] w-[430px] rounded-full border border-purple-500/30 animate-[spin_20s_linear_infinite]" />
+              {/* Glow */}
+              <div className="absolute w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full bg-purple-600/20 blur-[80px] lg:blur-[120px]" />
 
-              <div className="absolute h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-[120px]" />
-
-              <div className="relative">
-
-                <Image
-                  src="/images/avatar11.png"
-                  alt="Preeti Vishwakarma"
-                  width={420}
-                  height={420}
-                  priority
-                  className="relative z-10"
-                />
-
-              </div>
+              <Image
+                src="/images/avatar11.png"
+                alt="Preeti Vishwakarma"
+                width={420}
+                height={420}
+                priority
+                className="
+        relative z-10
+        w-56
+        sm:w-72
+        md:w-80
+        lg:w-[420px]
+        h-auto
+        object-contain
+      "
+              />
 
             </div>
-
           </ScrollReveal>
 
         </div>

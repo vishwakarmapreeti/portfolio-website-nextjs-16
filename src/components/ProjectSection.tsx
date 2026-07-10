@@ -6,7 +6,7 @@ const projects = [
   {
     title: "New Hope Platform",
     subtitle: "Healthcare Management System",
-    image: "/images/newhope.png",
+    image: "/images/project1.png",
     liveUrl: "https://newhope.ixorainnovation.com/",
     description:
       "A comprehensive healthcare and clinic management platform built with Next.js and Node.js. Developed modules for patient management, appointment scheduling, billing, doctor availability, secure authentication, and role-based access control while optimizing backend APIs for performance and scalability.",
@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Doctor Management Dashboard",
     subtitle: "Healthcare Admin Dashboard",
-    image: "/images/doctor-dashboard.png",
+    image: "/images/project1.png",
     liveUrl: "https://doc-frnt.ixorainnovation.com/dashboard",
     description:
       "A full-stack doctor management dashboard designed for healthcare organizations. Features include doctor scheduling, patient records, appointment management, secure authentication, REST API integration, and an intuitive admin interface for managing daily operations.",
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Viya Films",
     subtitle: "Corporate Portfolio Website",
-    image: "/images/viya-films.png",
+    image: "/images/project1.png",
     liveUrl: "https://www.viyafilms.com/",
     description:
       "A modern and responsive corporate website for a film production company showcasing services, portfolio, projects, and company information. Built with a focus on engaging UI, smooth navigation, and excellent user experience across all devices.",
@@ -52,7 +52,7 @@ const projects = [
   {
     title: "Brightus Lighting",
     subtitle: "Business Website",
-    image: "/images/brightus-lighting.png",
+    image: "/images/project1.png",
     liveUrl: "https://brightuslighting.com/",
     description:
       "A professional business website for a lighting solutions company featuring product showcases, company information, service offerings, and contact functionality with a clean, responsive, and SEO-friendly design.",
@@ -67,7 +67,7 @@ const projects = [
   {
   title: "Kids Toys E-Commerce",
   subtitle: "E-Commerce Website",
-  image: "/images/kids-toys.png",
+    image: "/images/project1.png",
   liveUrl: "https://kids-toys-frontend.vercel.app/",
   description:
     "A modern and responsive e-commerce platform for kids' toys featuring product browsing, category filtering, shopping cart, product details, and a clean user interface designed to provide a smooth online shopping experience.",
@@ -83,9 +83,9 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="relative py-28 space-y-28">
+    <section id="projects" className="relative space-y-28 p-10" style={{ maxWidth: "1400px", margin: "0 auto" }}>
       {projects.map((project, index) => (
-        <div key={index}>
+        <div key={index} className="project-items">
           {/* glow */}
           <div
             className="pointer-events-none absolute right-0 left-1/3 top-8 -z-10 h-[420px] opacity-40 blur-3xl"
@@ -107,7 +107,7 @@ const ProjectsSection = () => {
                 <p className="text-xs text-[#a48cc9]">
                   {project.subtitle}
                 </p>
-                <h3 className="text-2xl md:text-3xl font-semibold text-white/90">
+                <h3 className="text-2xl mt-4 md:text-3xl font-semibold text-white/90">
                   {project.title}
                 </h3>
               </div>
@@ -161,7 +161,7 @@ const ProjectsSection = () => {
             {/* IMAGE SIDE */}
             <div className="relative">
               <div className="group cursor-pointer rounded-2xl overflow-hidden bg-[#0f061c] border border-[#2f1c55] shadow-[0_0_90px_rgba(168,85,247,0.28)]">
-                <div className="overflow-hidden h-[360px]">
+                <div className="overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}

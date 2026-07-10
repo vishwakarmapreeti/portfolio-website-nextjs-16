@@ -14,7 +14,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-24 sm:py-28"
+      className="relative contact-section  overflow-hidden py-24 sm:py-28"
     >
       {/* Background Glow */}
       <div
@@ -117,24 +117,25 @@ const ContactSection = () => {
                       <FaLinkedin size={28} />
                     </div>
                   </Link>
-                </div>
-
-                {/* Buttons */}
-                <div className="mt-10 flex flex-wrap gap-4">
                   <Link
                     href="mailto:preetivishwakarma900@gmail.com"
                     className="rounded-xl bg-[#A855F7] px-7 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-purple-600"
                   >
                     Say Hello 👋
                   </Link>
+                </div>
 
-                  <Link
+                {/* Buttons */}
+                <div className="mt-10 flex flex-wrap gap-4">
+                  
+
+                  {/* <Link
                     href="/resume.pdf"
                     target="_blank"
                     className="rounded-xl border border-purple-500 px-7 py-4 font-medium text-white transition hover:bg-purple-500/10"
                   >
                     Download Resume
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
