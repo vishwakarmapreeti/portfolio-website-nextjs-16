@@ -1,3 +1,4 @@
+import AboutSection from "@/components/About"
 import ContactSection from "@/components/ContactSection"
 import HeroSection from "@/components/HeroSection"
 import ProjectsSection from "@/components/ProjectSection"
@@ -8,6 +9,7 @@ const Home = () => {
   return <>
     <main>
       <HeroSection />
+          <AboutSection />
       <WorkExperience />
          <TechStack/>
         <div className="py-16">

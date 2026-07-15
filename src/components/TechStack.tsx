@@ -5,7 +5,10 @@ import './styles.css'
 
 const TechStack = () => {
   return (
-    <section id='lab' className='relatie py-28 lab-section'>
+  <section
+  id="skills"
+  className="relative py-28 scroll-mt-24 lab-section"
+>
         <ScrollReveal stagger={0.08} className='text-center'>
            <p className="text-white/70 text-lg mb-5">
   Technologies I use to build modern, scalable, and high-performance web applications.
