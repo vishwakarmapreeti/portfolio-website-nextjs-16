@@ -21,7 +21,7 @@ const projects = [
   {
     title: "Doctor Management Dashboard",
     subtitle: "Healthcare Admin Dashboard",
-    image: "/images/project1.png",
+    image: "/images/image1.png",
     liveUrl: "https://doc-frnt.ixorainnovation.com/dashboard",
     description:
       "A full-stack doctor management dashboard designed for healthcare organizations. Features include doctor scheduling, patient records, appointment management, secure authentication, REST API integration, and an intuitive admin interface for managing daily operations.",
@@ -37,7 +37,7 @@ const projects = [
   {
     title: "Viya Films",
     subtitle: "Corporate Portfolio Website",
-    image: "/images/project1.png",
+    image: "/images/image2.png",
     liveUrl: "https://www.viyafilms.com/",
     description:
       "A modern and responsive corporate website for a film production company showcasing services, portfolio, projects, and company information. Built with a focus on engaging UI, smooth navigation, and excellent user experience across all devices.",
@@ -52,7 +52,7 @@ const projects = [
   {
     title: "Brightus Lighting",
     subtitle: "Business Website",
-    image: "/images/project1.png",
+    image: "/images/image3.png",
     liveUrl: "https://brightuslighting.com/",
     description:
       "A professional business website for a lighting solutions company featuring product showcases, company information, service offerings, and contact functionality with a clean, responsive, and SEO-friendly design.",
@@ -67,7 +67,7 @@ const projects = [
   {
   title: "Kids Toys E-Commerce",
   subtitle: "E-Commerce Website",
-    image: "/images/project1.png",
+    image: "/images/image4.png",
   liveUrl: "https://kids-toys-frontend.vercel.app/",
   description:
     "A modern and responsive e-commerce platform for kids' toys featuring product browsing, category filtering, shopping cart, product details, and a clean user interface designed to provide a smooth online shopping experience.",

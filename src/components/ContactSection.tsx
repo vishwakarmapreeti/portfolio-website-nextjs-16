@@ -141,13 +141,6 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="mt-16 text-center">
-            <p className="text-sm text-white/40">
-              © {new Date().getFullYear()} Preeti Vishwakarma • Designed &
-              Developed with ❤️ using Next.js, React & Tailwind CSS.
-            </p>
-          </div>
         </ScrollReveal>
       </div>
     </section>

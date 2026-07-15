@@ -117,14 +117,25 @@ const WorkExperience = () => {
       <div className="relative p-6">
         {/* Company */}
         <div className="flex items-start gap-4 mb-5">
-          <div className="relative w-14 h-14 rounded-xl bg-[#1a0b30] border border-purple-800/50 overflow-hidden">
-            <Image
-              src={item.image}
-              alt={item.company}
-              fill
-              className="object-contain p-2"
-            />
-          </div>
+         <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-[#2b134f] via-[#1b1038] to-[#0d081d] shadow-lg shadow-purple-900/30">
+  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/20 to-transparent" />
+
+<div
+  className={`relative flex h-16 w-16 items-center justify-center rounded-2xl overflow-hidden border ${
+    item.company === "MIS Innovate"
+      ? "bg-white border-white/20 shadow-lg shadow-white/10"
+      : "bg-gradient-to-br from-[#2b134f] via-[#1b1038] to-[#0d081d] border-white/10 shadow-lg shadow-purple-900/30"
+  }`}
+>
+  <Image
+    src={item.image}
+    alt={item.company}
+    width={42}
+    height={42}
+    className="object-contain transition-transform duration-300 group-hover:scale-110"
+  />
+</div>
+</div>
 
           <div className="flex-1">
             <h3 className="text-xl font-bold text-white">

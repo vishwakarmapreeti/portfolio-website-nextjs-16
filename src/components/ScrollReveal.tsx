@@ -1,84 +1,83 @@
 "use client";
 
-import  gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ScrollRevealProps = {
-    children: React.ReactNode;
-    className?: string;
-    offsetY?: number;
-    opacityFrom?: number;
-    duration?: number;
-    delay?: number;
-    ease?: string;
-    stagger?: number;
-    as?: keyof React.JSX.IntrinsicElements;
-}
+  children: React.ReactNode;
+  className?: string;
+  offsetY?: number;
+  opacityFrom?: number;
+  duration?: number;
+  delay?: number;
+  ease?: string;
+  stagger?: number;
+  as?: keyof React.JSX.IntrinsicElements;
+};
 
 const ScrollReveal = ({
-    children,
-    className,
-    offsetY = 24,
-    opacityFrom = 0,
-    duration = 0.8,
-    delay =0,
-    ease = "power3.out",
-    stagger,
-    as: Wrapper = "div",
+  children,
+  className,
+  offsetY = 12,
+  opacityFrom = 0.2,
+  duration = 0.45,
+  delay = 0,
+  ease = "power2.out",
+  stagger,
+  as: Wrapper = "div",
+}: ScrollRevealProps) => {
+  const containerRef = useRef<HTMLElement | null>(null);
 
-}:ScrollRevealProps ) => {
-    const containerRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const element = containerRef.current;
 
-    useEffect(() => {
-        if(typeof window === "undefined") return;
-        gsap.registerPlugin(ScrollTrigger);
+    if (!element) return;
 
-        const element = containerRef.current as unknown as HTMLElement | null;
-        if(!element) return;
+    const targets =
+      typeof stagger === "number"
+        ? element.children
+        : element;
 
-        const targets: gsap.TweenTarget = typeof stagger === "number" ? (element as HTMLElement).querySelectorAll(":scope > *") : element;
-
-        const ctx = gsap.context(() => {
-            gsap.fromTo(
-                targets,
-                {
-                    opacity: opacityFrom,
-                    y: offsetY,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: duration,
-                    delay: delay,
-                    ease: ease,
-                    stagger: stagger,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 85%",
-                        end: "bottom 10%",
-                        // markers: true,
-                        toggleActions: "play none none reverse",
-                        once: true,
-                    }
-
-                }
-            )
-        }, element);
-
-        return () => {
-            ctx.revert();
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        targets,
+        {
+          opacity: opacityFrom,
+          y: offsetY,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration,
+          delay,
+          ease,
+          stagger,
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 90%",
+            toggleActions: "play none none none",
+            once: true,
+          },
         }
+      );
+    }, element);
 
+    return () => {
+      ctx.revert();
+    };
+  }, [offsetY, opacityFrom, duration, delay, ease, stagger]);
 
-    }, [offsetY, opacityFrom, duration, delay, ease, stagger]);
+  const Tag = Wrapper as any;
 
-    const Tag = Wrapper as any
   return (
     <Tag ref={containerRef} className={className}>
-        {children}
+      {children}
     </Tag>
-  )
-}
+  );
+};
 
-export default ScrollReveal
+export default ScrollReveal;
